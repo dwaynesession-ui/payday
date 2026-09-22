@@ -1,7 +1,7 @@
 // Payday Waterfall offline cache.
 // To publish an update, upload the new files and change the version below.
-const CACHE = "payday-waterfall-v1";
-const FILES = ["./", "./index.html", "./app.js", "./archivo.woff2", "./manifest.json", "./icon-192.png", "./icon-512.png", "./icon-maskable.png"];
+const CACHE = "payday-waterfall-v4";
+const FILES = ["./", "./index.html", "./manifest.json", "./icon-192.png", "./icon-512.png", "./icon-maskable-512.png"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(FILES)).then(() => self.skipWaiting()));
