@@ -1,6 +1,6 @@
 // Payday Waterfall offline cache.
 // To publish an update, upload the new files and change the version below.
-const CACHE = "payday-waterfall-v4-4";
+const CACHE = "payday-waterfall-v4-8";
 const FILES = ["./", "./index.html", "./manifest.json", "./icon-192.png", "./icon-512.png", "./icon-maskable-512.png"];
 
 self.addEventListener("install", (event) => {
@@ -10,7 +10,7 @@ self.addEventListener("install", (event) => {
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys()
-      // Only clear this app's own old versions. Payday Lite lives on the same site and keeps its own cache.
+      // Only clear this app's own old versions. The other Payday apps live on the same site and keep their own caches.
       .then((keys) => Promise.all(keys.filter((k) => k.startsWith("payday-waterfall-") && k !== CACHE).map((k) => caches.delete(k))))
       .then(() => self.clients.claim())
   );
